@@ -1,0 +1,108 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Shed.CoreKit.WebApi.Abstractions/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Shed.CoreKit.WebApi.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Shed.CoreKit.WebApi.Abstractions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Shed.CoreKit.WebApi.Abstractions/1.0.0": {
+      "sha512": "oWHRbXXbzyuB5d7qQCRHCow1gfx9Gxc43oF2VPSQ7GUXUPfKnoW9jeeMUDLmvrWWczNZMbmtSQJincF/gUJBkg==",
+      "type": "package",
+      "path": "shed.corekit.webapi.abstractions/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.1/Shed.CoreKit.WebApi.Abstractions.dll",
+        "shed.corekit.webapi.abstractions.1.0.0.nupkg.sha512",
+        "shed.corekit.webapi.abstractions.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Shed.CoreKit.WebApi.Abstractions >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Антон\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Interfaces\\Interfaces.csproj",
+      "projectName": "Interfaces",
+      "projectPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Interfaces\\Interfaces.csproj",
+      "packagesPath": "C:\\Users\\Антон\\.nuget\\packages\\",
+      "outputPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Interfaces\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Антон\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "dependencies": {
+          "Shed.CoreKit.WebApi.Abstractions": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
