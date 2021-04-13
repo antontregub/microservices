@@ -1,8 +1,0 @@
-D:\Навчання\Розподілені системи\LAB2\WebUI\Interfaces\bin\Debug\netcoreapp3.1\Interfaces.deps.json
-D:\Навчання\Розподілені системи\LAB2\WebUI\Interfaces\bin\Debug\netcoreapp3.1\Interfaces.dll
-D:\Навчання\Розподілені системи\LAB2\WebUI\Interfaces\bin\Debug\netcoreapp3.1\Interfaces.pdb
-D:\Навчання\Розподілені системи\LAB2\WebUI\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.AssemblyInfoInputs.cache
-D:\Навчання\Розподілені системи\LAB2\WebUI\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.AssemblyInfo.cs
-D:\Навчання\Розподілені системи\LAB2\WebUI\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.csproj.CoreCompileInputs.cache
-D:\Навчання\Розподілені системи\LAB2\WebUI\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.dll
-D:\Навчання\Розподілені системи\LAB2\WebUI\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.pdb

@@ -1,9 +1,0 @@
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\bin\Debug\netcoreapp3.1\Middleware.deps.json
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\bin\Debug\netcoreapp3.1\Middleware.dll
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\bin\Debug\netcoreapp3.1\Middleware.pdb
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\obj\Debug\netcoreapp3.1\Middleware.AssemblyInfoInputs.cache
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\obj\Debug\netcoreapp3.1\Middleware.AssemblyInfo.cs
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\obj\Debug\netcoreapp3.1\Middleware.csproj.CoreCompileInputs.cache
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\obj\Debug\netcoreapp3.1\Middleware.dll
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\obj\Debug\netcoreapp3.1\Middleware.pdb
-D:\Навчання\Розподілені системи\LAB2\WebUI\Middleware\obj\Debug\netcoreapp3.1\Middleware.csprojAssemblyReference.cache
