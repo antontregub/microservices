@@ -9,5 +9,6 @@ namespace Facade
     {
         public string msg { get; set; }
         public System.Guid id { get; set; }
+
     }
 }
