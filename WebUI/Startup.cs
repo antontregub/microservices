@@ -1,4 +1,6 @@
-using Interfaces;
+using Facade;
+using Logging;
+using Messages;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,9 +18,9 @@ namespace WebUI
         {
             services.AddTransient<HttpClient>();
             services.AddWebApiEndpoints(
-                new WebApiEndpoint<IFacade>(new System.Uri("http://localhost:5001")),
-                new WebApiEndpoint<ILogging>(new System.Uri("http://localhost:5002")),
-                new WebApiEndpoint<IMessages>(new System.Uri("http://localhost:5003")));
+                new WebApiEndpoint<FacadeImpl>(new System.Uri("http://localhost:5001")),
+                new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5002")),
+                new WebApiEndpoint<MessagesImpl>(new System.Uri("http://localhost:5003")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,9 +43,9 @@ namespace WebUI
             });
             app.UseStaticFiles();
             // редиректы на микросервисы
-            app.UseWebApiRedirect("api/facade", new WebApiEndpoint<IFacade>(new System.Uri("http://localhost:5001")));
-            app.UseWebApiRedirect("api/logging", new WebApiEndpoint<ILogging>(new System.Uri("http://localhost:5002")));
-            app.UseWebApiRedirect("api/messages", new WebApiEndpoint<IMessages>(new System.Uri("http://localhost:5003")));
+            app.UseWebApiRedirect("api/facade", new WebApiEndpoint<FacadeImpl>(new System.Uri("http://localhost:5001")));
+            app.UseWebApiRedirect("api/logging", new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5002")));
+            app.UseWebApiRedirect("api/messages", new WebApiEndpoint<MessagesImpl>(new System.Uri("http://localhost:5003")));
         }
     }
 }

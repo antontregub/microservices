@@ -9,7 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
+    <ProjectReference Include="..\Facade\Facade.csproj" />
+    <ProjectReference Include="..\Logging\Logging.csproj" />
+    <ProjectReference Include="..\Messages\Messages.csproj" />
   </ItemGroup>
 
 </Project>

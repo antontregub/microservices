@@ -5,10 +5,10 @@ using Shed.CoreKit.WebApi;
 
 namespace Interfaces
 {
-    public interface IMessages
-    {
-        [Route("get")]
-        [HttpGet]
-        public string Get();
-    }
+    //public interface IMessages
+    //{
+    //    [Route("get")]
+    //    [HttpGet]
+    //    public string Get();
+    //}
 }

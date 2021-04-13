@@ -905,18 +905,55 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "Interfaces/1.0.0": {
+      "Facade/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Shed.CoreKit.WebApi.Abstractions": "1.0.0"
+          "Shed.CoreKit.WebApi": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Interfaces.dll": {}
+          "bin/placeholder/Facade.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Interfaces.dll": {}
-        }
+          "bin/placeholder/Facade.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Logging/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Facade": "1.0.0",
+          "Shed.CoreKit.WebApi": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Logging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Logging.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Messages/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Facade": "1.0.0",
+          "Shed.CoreKit.WebApi": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Messages.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Messages.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -3320,15 +3357,27 @@
         "version.txt"
       ]
     },
-    "Interfaces/1.0.0": {
+    "Facade/1.0.0": {
       "type": "project",
-      "path": "../Interfaces/Interfaces.csproj",
-      "msbuildProject": "../Interfaces/Interfaces.csproj"
+      "path": "../Facade/Facade.csproj",
+      "msbuildProject": "../Facade/Facade.csproj"
+    },
+    "Logging/1.0.0": {
+      "type": "project",
+      "path": "../Logging/Logging.csproj",
+      "msbuildProject": "../Logging/Logging.csproj"
+    },
+    "Messages/1.0.0": {
+      "type": "project",
+      "path": "../Messages/Messages.csproj",
+      "msbuildProject": "../Messages/Messages.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Interfaces >= 1.0.0",
+      "Facade >= 1.0.0",
+      "Logging >= 1.0.0",
+      "Messages >= 1.0.0",
       "Shed.CoreKit.WebApi >= 1.0.0"
     ]
   },
@@ -3359,8 +3408,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Interfaces\\Interfaces.csproj": {
-              "projectPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Interfaces\\Interfaces.csproj"
+            "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Facade\\Facade.csproj": {
+              "projectPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Facade\\Facade.csproj"
+            },
+            "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Logging\\Logging.csproj": {
+              "projectPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Logging\\Logging.csproj"
+            },
+            "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Messages\\Messages.csproj": {
+              "projectPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Messages\\Messages.csproj"
             }
           }
         }

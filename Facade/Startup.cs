@@ -1,10 +1,8 @@
-using Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Middleware;
 using Shed.CoreKit.WebApi;
 
 
@@ -19,9 +17,9 @@ namespace Facade
             services.AddCorrelationToken();
             services.AddCors();
             // регистрируем реализацию как зависимость в контейнере IoC
-            services.AddTransient<IFacade, FacadeImpl>();
+            services.AddTransient<FacadeImpl, FacadeImpl>();
             services.AddLogging(builder => builder.AddConsole());
-            services.AddRequestLogging();
+           // services.AddRequestLogging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,7 +31,7 @@ namespace Facade
                 }
 
             app.UseCorrelationToken();
-            app.UseRequestLogging();
+            //app.UseRequestLogging();
             app.UseCors(builder =>
             {
                 builder
@@ -43,7 +41,7 @@ namespace Facade
             });
 
             // привязываем реализацию к конечной точке
-            app.UseWebApiEndpoint<IFacade>();
+            app.UseWebApiEndpoint<FacadeImpl>();
         }
     }
 }

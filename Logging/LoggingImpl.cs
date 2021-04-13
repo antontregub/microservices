@@ -1,4 +1,4 @@
-﻿using Interfaces;
+﻿using Facade;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Shed.CoreKit.WebApi;
@@ -10,56 +10,53 @@ using System.Threading.Tasks;
 
 namespace Logging
 {
-    public class LoggingImpl : ILogging
+    public class LoggingImpl 
     {
-        UserService userService;
+        CacheServise cacheService;
         private readonly ILogger _logger;
-        public LoggingImpl(ILoggerFactory logger, UserService memoryCache)
+        public LoggingImpl(ILoggerFactory logger, CacheServise memoryCache)
         {
             _logger = logger.CreateLogger("");
-            userService = memoryCache;
+            cacheService = memoryCache;
 
         }
         Dictionary<Guid, string> temp = new Dictionary<Guid, string>();
+
+        [Route("post")]
+        [HttpPost]
         public string Post([FromBody] Model msg)
         {
             _logger.LogInformation($"Id: { msg.id}]");
 
-            userService.AddUser(msg);
-            //temp.Add(msg.id, msg.msg);
-            return "1";
+            cacheService.AddUser(msg);
+            return "";
         }
 
+        [Route("get")]
+        [HttpGet]
         public string Get()
         {
-            var res = userService.GetUser().Result;
+            var res = cacheService.GetUser().Result;
             return res;
         }
     }
 
-    public class UserService
+    public class CacheServise
     {
         private IMemoryCache cache;
         protected static readonly ConcurrentDictionary<System.Guid, bool> _allKeys;
-        public UserService( IMemoryCache memoryCache)
+        public CacheServise( IMemoryCache memoryCache)
         {
             cache = memoryCache;
-            //_allKeys = new ConcurrentDictionary<System.Guid, bool>();
         }
 
-
-        static UserService()
+        static CacheServise()
         {
             _allKeys = new ConcurrentDictionary<System.Guid, bool>();
         }
-        //public async Task<IEnumerable<Model>> GetUsers()
-        //{
-        //    return await db.Users.ToListAsync();
-        //}
-
+       
         public async Task AddUser(Model user)
         {
-            
                 cache.Set(user.id, user, new MemoryCacheEntryOptions
                 {
                     AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
@@ -71,7 +68,6 @@ namespace Logging
         public async Task<string> GetUser()
         {
             Model user = null;
-            //cache.TryGetValue(user.id, out user);
             var aa = _allKeys.Keys.ToList();
             string result = "";
             foreach(var a in aa)

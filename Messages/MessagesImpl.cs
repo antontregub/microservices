@@ -1,13 +1,11 @@
-﻿using Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Shed.CoreKit.WebApi;
 
 namespace Messages
 {
-    public class MessagesImpl : IMessages
+    public class MessagesImpl 
     {
+        [Route("get")]
+        [HttpGet]
         public string Get()
         {
             return "NotImplementedException";

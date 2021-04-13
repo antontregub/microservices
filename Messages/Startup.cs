@@ -1,12 +1,11 @@
-using System.Net.Http;
-using Interfaces;
+using Facade;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Middleware;
 using Shed.CoreKit.WebApi;
+using System.Net.Http;
 
 namespace Messages
 {
@@ -18,13 +17,13 @@ namespace Messages
         {
             services.AddCorrelationToken();
             services.AddCors();
-            services.AddTransient<IMessages, MessagesImpl>();
+            services.AddTransient<MessagesImpl, MessagesImpl>();
             services.AddTransient<HttpClient>();
-            services.AddWebApiEndpoints(new WebApiEndpoint<IFacade>(new System.Uri("http://localhost:5001")));
+            services.AddWebApiEndpoints(new WebApiEndpoint<FacadeImpl>(new System.Uri("http://localhost:5001")));
             // регистрируем планировщик (запустится при старте приложения, больше ничего делать не нужно)
             //services.AddHostedService<Scheduler>();
             services.AddLogging(builder => builder.AddConsole());
-            services.AddRequestLogging();
+            //services.AddRequestLogging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +44,7 @@ namespace Messages
                     .AllowAnyHeader();
             });
 
-            app.UseWebApiEndpoint<IMessages>();
+            app.UseWebApiEndpoint<MessagesImpl>();
         }
     }
 }

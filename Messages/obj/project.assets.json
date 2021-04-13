@@ -283,7 +283,7 @@
           "lib/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.dll": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/2.2.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
@@ -335,7 +335,7 @@
           "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/5.0.0": {
+      "Microsoft.Extensions.Logging.Abstractions/2.2.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
@@ -905,33 +905,21 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "Interfaces/1.0.0": {
+      "Facade/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Shed.CoreKit.WebApi.Abstractions": "1.0.0"
+          "Shed.CoreKit.WebApi": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Interfaces.dll": {}
+          "bin/placeholder/Facade.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Interfaces.dll": {}
-        }
-      },
-      "Middleware/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "5.0.0"
+          "bin/placeholder/Facade.dll": {}
         },
-        "compile": {
-          "bin/placeholder/Middleware.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Middleware.dll": {}
-        }
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -1204,24 +1192,17 @@
         "microsoft.extensions.dependencyinjection.nuspec"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
-      "sha512": "ORj7Zh81gC69TyvmcUm9tSzytcy8AVousi+IVRAI8nLieQjOFryRusSFh7+aLk16FN9pQNqJAiMd7BTKINK0kA==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/2.2.0": {
+      "sha512": "f9hstgjVmr6rmrfGSpfsVOl2irKAgr1QjrSi3FgnS7kulxband50f2brRLwySAQTADPZeTdow0mpSMcoAdadCw==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/5.0.0",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/2.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
-        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "microsoft.extensions.dependencyinjection.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec"
       ]
     },
     "Microsoft.Extensions.DependencyModel/2.1.0": {
@@ -1266,24 +1247,17 @@
         "microsoft.extensions.hosting.abstractions.nuspec"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/5.0.0": {
-      "sha512": "NxP6ahFcBnnSfwNBi2KH2Oz8Xl5Sm2krjId/jRR3I7teFphwiUoUeZPwTNA21EX+5PtjqmyAvKaOeBXcJjcH/w==",
+    "Microsoft.Extensions.Logging.Abstractions/2.2.0": {
+      "sha512": "B2WqEox8o+4KUOpL7rZPyh6qYjik8tHi2tN8Z9jZkHzED8ElYgZa/h6K+xliB435SqUcWT290Fr2aa8BtZjn8A==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/5.0.0",
+      "path": "microsoft.extensions.logging.abstractions/2.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Extensions.Logging.Abstractions.dll",
-        "lib/net461/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
-        "microsoft.extensions.logging.abstractions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "microsoft.extensions.logging.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec"
       ]
     },
     "Microsoft.Extensions.ObjectPool/2.2.0": {
@@ -3349,21 +3323,15 @@
         "version.txt"
       ]
     },
-    "Interfaces/1.0.0": {
+    "Facade/1.0.0": {
       "type": "project",
-      "path": "../Interfaces/Interfaces.csproj",
-      "msbuildProject": "../Interfaces/Interfaces.csproj"
-    },
-    "Middleware/1.0.0": {
-      "type": "project",
-      "path": "../Middleware/Middleware.csproj",
-      "msbuildProject": "../Middleware/Middleware.csproj"
+      "path": "../Facade/Facade.csproj",
+      "msbuildProject": "../Facade/Facade.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Interfaces >= 1.0.0",
-      "Middleware >= 1.0.0",
+      "Facade >= 1.0.0",
       "Shed.CoreKit.WebApi >= 1.0.0"
     ]
   },
@@ -3394,11 +3362,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Interfaces\\Interfaces.csproj": {
-              "projectPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Interfaces\\Interfaces.csproj"
-            },
-            "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Middleware\\Middleware.csproj": {
-              "projectPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Middleware\\Middleware.csproj"
+            "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Facade\\Facade.csproj": {
+              "projectPath": "D:\\Навчання\\Розподілені системи\\LAB2\\WebUI\\Facade\\Facade.csproj"
             }
           }
         }

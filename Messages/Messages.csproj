@@ -9,8 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
-    <ProjectReference Include="..\Middleware\Middleware.csproj" />
+    <ProjectReference Include="..\Facade\Facade.csproj" />
   </ItemGroup>
 
 </Project>
