@@ -16,10 +16,13 @@ namespace WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddTransient<HttpClient>();
             services.AddWebApiEndpoints(
                 new WebApiEndpoint<FacadeImpl>(new System.Uri("http://localhost:5001")),
-                new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5002")),
+                new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5004")),
+                new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5005")),
+                new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5006")),
                 new WebApiEndpoint<MessagesImpl>(new System.Uri("http://localhost:5003")));
         }
 
@@ -43,9 +46,11 @@ namespace WebUI
             });
             app.UseStaticFiles();
             // редиректы на микросервисы
-            app.UseWebApiRedirect("api/facade", new WebApiEndpoint<FacadeImpl>(new System.Uri("http://localhost:5001")));
-            app.UseWebApiRedirect("api/logging", new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5002")));
-            app.UseWebApiRedirect("api/messages", new WebApiEndpoint<MessagesImpl>(new System.Uri("http://localhost:5003")));
+            //app.UseWebApiRedirect("api/facade", new WebApiEndpoint<FacadeImpl>(new System.Uri("http://localhost:5001")));
+            //app.UseWebApiRedirect("api/logging", new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5004")));
+            //app.UseWebApiRedirect("api/logging", new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5005")));
+            //app.UseWebApiRedirect("api/logging", new WebApiEndpoint<LoggingImpl>(new System.Uri("http://localhost:5006")));
+            //app.UseWebApiRedirect("api/messages", new WebApiEndpoint<MessagesImpl>(new System.Uri("http://localhost:5003")));
         }
     }
 }

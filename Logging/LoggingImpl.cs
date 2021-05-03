@@ -1,16 +1,15 @@
 ﻿using Facade;
+using Hazelcast;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Shed.CoreKit.WebApi;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Logging
 {
-    public class LoggingImpl 
+    public class LoggingImpl
     {
         CacheServise cacheService;
         private readonly ILogger _logger;
@@ -20,60 +19,75 @@ namespace Logging
             cacheService = memoryCache;
 
         }
-        Dictionary<Guid, string> temp = new Dictionary<Guid, string>();
 
-        [Route("post")]
+        [Route("logging/post")]
         [HttpPost]
-        public string Post([FromBody] Model msg)
+        public async Task<string> Post([FromBody] Model msg)
         {
             _logger.LogInformation($"Id: { msg.id}]");
+            _logger.LogInformation($"Id: { msg.msg}]");
 
-            cacheService.AddUser(msg);
+            await cacheService.Add(msg);
             return "";
         }
 
-        [Route("get")]
+        [Route("logging/get")]
         [HttpGet]
-        public string Get()
+        public async Task<string> Get()
         {
-            var res = cacheService.GetUser().Result;
-            return res;
+            var res =  cacheService.Get().Result;
+            return res.ToString();
         }
     }
 
-    public class CacheServise
+    public class CacheServise 
     {
-        private IMemoryCache cache;
-        protected static readonly ConcurrentDictionary<System.Guid, bool> _allKeys;
-        public CacheServise( IMemoryCache memoryCache)
+        public CacheServise(IMemoryCache memoryCache)
         {
-            cache = memoryCache;
+          
         }
 
         static CacheServise()
         {
-            _allKeys = new ConcurrentDictionary<System.Guid, bool>();
-        }
-       
-        public async Task AddUser(Model user)
-        {
-                cache.Set(user.id, user, new MemoryCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
-                });
-
-            _allKeys.TryAdd(user.id, true);
         }
 
-        public async Task<string> GetUser()
+        public async Task Add(Model user)
         {
-            Model user = null;
-            var aa = _allKeys.Keys.ToList();
-            string result = "";
-            foreach(var a in aa)
+            await using var client = await HazelcastClientFactory.StartNewClientAsync(new HazelcastOptions
             {
-                cache.TryGetValue(a, out user);
-                result = String.Concat(result, user.msg);
+                Networking =
+                {
+                    Addresses =
+                    {
+                       
+                    }
+                }
+            });
+            var map = await client.GetMapAsync<Guid, string>("lab4");
+
+            await map.PutAsync(user.id, user.msg);
+        }
+
+        public async Task<string> Get()
+        {
+            await using var client = await HazelcastClientFactory.StartNewClientAsync(new HazelcastOptions
+            {
+                Networking =
+                {
+                    Addresses =
+                    {
+
+                    }
+                }
+            });
+            var map = await client.GetMapAsync<Guid, string>("lab4");
+
+            var mess = await map.GetEntriesAsync();
+
+            string result = "";
+            foreach (var a in mess)
+            {
+                result = String.Concat(result, a.Value);
             }
 
             return result;

@@ -1,12 +1,13 @@
 ﻿using Shed.CoreKit.WebApi;
+using System.Threading.Tasks;
 
 namespace Messages
 {
     public class MessagesImpl 
     {
-        [Route("get")]
+        [Route("messages/get")]
         [HttpGet]
-        public string Get()
+        public async Task<string> Get()
         {
             return "NotImplementedException";
         }
